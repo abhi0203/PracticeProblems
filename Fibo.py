@@ -5,6 +5,7 @@
 # Date: 15-March
 
 #Solution for O(n) and constant space complexity
+fiboList=[0,1]
 def calcFiboSimple(pos):
 	if pos<2 and pos>=0:
 		return pos
@@ -18,16 +19,14 @@ def calcFiboSimple(pos):
 		currentPos+=1
 	return last
 
-def calcFiboRecursive(pos, lst):
-	currentPos= len(lst)
-	if pos<= len(lst)-1:
-		return lst
-	while currentPos<=pos:
-		lst[currentPos].append(calcFiboRecursive(currentPos-1, lst) + calcFiboRecursive(currentPos-2, lst))
-		currentPos+=1
-	return lst
+def calcFiboRecursive(pos):
+	currentPos= len(fiboList)
+	if pos< currentPos:
+		return fiboList[pos]
+	else:
+		fiboList.append(calcFiboRecursive(pos-1) + calcFiboRecursive(pos-2))
+		return fiboList[-1]
 
-
-
-print(calcFiboSimple(5))
-print(calcFiboRecursive(5,[0,1])[-1])
+print(calcFiboSimple(20))
+calcFiboRecursive(20)
+print(fiboList[-1])
