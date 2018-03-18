@@ -27,6 +27,6 @@ def calcFiboRecursive(pos):
 		fiboList.append(calcFiboRecursive(pos-1) + calcFiboRecursive(pos-2))
 		return fiboList[-1]
 
-print(calcFiboSimple(20))
-calcFiboRecursive(20)
+print(calcFiboSimple(212))
+calcFiboRecursive(212)
 print(fiboList[-1])
